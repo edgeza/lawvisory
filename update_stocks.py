@@ -23,7 +23,7 @@ import pandas as pd
 # API Configuration
 API_KEY = "ddC9N3ABVTcKX5pITlCGGMDBNi1Las8v"
 API_BASE_URL = "https://api.polygon.io"
-STOCKS_DIR = "STOCKS"
+STOCKS_DIR = "data/STOCKS"
 
 def get_latest_date_from_csv(file_path):
     """Read the CSV and return the latest date and metadata."""
@@ -213,6 +213,7 @@ def main():
     print("Starting stock data update...")
     print(f"API Key: {API_KEY[:10]}...")
     print(f"Stocks directory: {STOCKS_DIR}\n")
+    sys.stdout.flush()
     
     # Get all CSV files in STOCKS directory
     stocks_path = Path(STOCKS_DIR)
@@ -231,6 +232,7 @@ def main():
         csv_files = csv_files[:test_limit]
     
     print(f"Found {len(csv_files)} stock data files to process\n")
+    sys.stdout.flush()
     
     # Process each file
     success_count = 0
